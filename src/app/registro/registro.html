@@ -1,0 +1,43 @@
+<div class="contenedorRegistrarse">
+    <h2>REGISTRO</h2>
+
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label for="correoRegistrarse">Correo electrónico:</label>
+            <input type="email" id="correoRegistrarse" formControlName="correo">
+
+            @if (f["correo"].touched && f["correo"].invalid) {
+            <!--Si ha habido algún error en alguno de estos campos, poner el error-->
+            <div class="error">
+                @if (f["correo"].errors?.['required']) {
+                <small>El correo es obligatorio.</small>
+                }
+                @if (f["correo"].errors?.['email']) {
+                <small>Debe ser un correo válido.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <div>
+            <label for="contrasenaRegistrarse">Contraseña:</label>
+            <input type="password" id="contrasenaRegistrarse" formControlName="contrasena">
+
+            @if (f["contrasena"].touched && f["contrasena"].invalid) {
+            <div class="error">
+                @if (f["contrasena"].errors?.['required']) {
+                <small>La contraseña es obligatoria.</small>
+                }
+                @if (f["contrasena"].errors?.['pattern']) {
+                <small>Debe tener mínimo 8 caracteres, con mayúscula, minúscula, número y carácter especial.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
+    </form>
+
+    <p>¿Ya tienes cuenta? <a routerLink="/login">Iniciar sesión</a></p>
+</div>

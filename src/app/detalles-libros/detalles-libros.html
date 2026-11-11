@@ -1,0 +1,31 @@
+@if (libro(); as l) {
+  <div class="detalle-container">
+
+    <div class="ficha">
+
+      <div class="imagen-contenedor">
+        <img [src]="l.imagen" alt="{{l.titulo}}" class="imagen-libro">
+      </div>
+
+      <div class="info-libro">
+        <h2>{{ l.titulo | uppercase }}</h2>
+
+        <p class="dato"><span class="etiqueta">Autor:</span> {{l.autor}}</p>
+        <p class="dato"><span class="etiqueta">Género:</span> {{l.genero}}</p>
+        <p class="dato"><span class="etiqueta">Año:</span> {{l.anio}}</p>
+
+        <p class="sinopsis">{{l.sinopsis}}</p>
+
+        @if (l.disponible) {
+          <p class="estado estado-ok">Disponible</p>
+        } @else {
+          <p class="estado estado-no">No disponible</p>
+        }
+      </div>
+
+    </div>
+
+    <button class="boton-volver" (click)="goBack()">Volver</button>
+
+  </div>
+}

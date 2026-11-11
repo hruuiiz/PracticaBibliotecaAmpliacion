@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Catálogo – Estilos del componente
+   ========================================================================== */
+
+/*CÓDIGO GENERADO POR LA IA CLAUDE*/
+
+:host {
+  /* Mismas variables que el dashboard, el login y el menú */
+  --color-fondo: #eef1f6;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1d2433;
+  --color-texto-suave: #5d6678;
+  --color-acento: #2f4cdd;
+  --color-acento-hover: #243bb5;
+  --color-foco: rgba(47, 76, 221, 0.22);
+  --color-error: #c0392b;
+  --color-desactivado: #9aa3b5;
+  --color-sombra: rgba(29, 36, 51, 0.12);
+  --color-sombra-hover: rgba(47, 76, 221, 0.25);
+
+  display: block;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: var(--color-fondo);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.catalogo-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.titulo-catalogo {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin: 0 0 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Cuadrícula: 4 columnas (16 libros = 4 filas exactas) ---------------- */
+
+.grid-libros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Tarjeta del libro --------------------------------------------------- */
+
+.tarjeta-libro {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-texto); /* Borde fino casi negro (el color del texto de la página) */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--color-sombra);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-libro:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px var(--color-sombra-hover);
+}
+
+/* Portada */
+.imagen-contenedor {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Proporción de portada de libro: se adapta al ancho de la tarjeta */
+  background-color: #d5dbe6; /* Fondo mientras carga la imagen */
+  overflow: hidden;
+}
+
+.imagen-libro {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tarjeta-libro:hover .imagen-libro {
+  transform: scale(1.05);
+}
+
+/* Libro no disponible: portada apagada */
+.tarjeta-libro.no-disponible .imagen-libro {
+  filter: grayscale(0.7);
+  opacity: 0.8;
+}
+
+/* Información ---------------------------------------------------------- */
+
+.info-libro {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center; /* Todo centrado horizontalmente */
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.info-libro h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem; /* Más grande que el resto del texto */
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-texto);
+
+  /* Máximo 2 líneas con puntos suspensivos */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.autor {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-texto-suave);
+}
+
+.genero {
+  margin: 0.15rem 0 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+}
+
+/* Etiqueta de disponibilidad */
+.estado {
+  align-self: center;
+  margin: 0 0 1rem;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.estado-ok {
+  color: #1e7e34;
+  background: #e6f4ea;
+}
+
+.estado-no {
+  color: var(--color-error);
+  background: rgba(192, 57, 43, 0.1);
+}
+
+/* Botón Alquilar (mismo estilo que el botón del login) ---------------- */
+
+.info-libro button {
+  margin-top: auto; /* Lo empuja al final de la tarjeta */
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-acento);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.info-libro button:hover {
+  background: var(--color-acento-hover);
+}
+
+.info-libro button:active {
+  transform: translateY(1px);
+}
+
+.info-libro button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-foco);
+}
+
+/* Va el último: si estuviera antes, hover y active lo pisarían */
+.info-libro button:disabled {
+  background: var(--color-desactivado);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Pantallas medianas y móviles ----------------------------------------- */
+
+@media (max-width: 1100px) {
+  .grid-libros {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .grid-libros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+  }
+  .grid-libros {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .info-libro h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido ------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-libro,
+  .imagen-libro,
+  .info-libro button {
+    transition: none;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="filtro">
+  @for (genero of generos; track genero) {
+    <button (click)="elegirGenero(genero)" [class.activo]="genero === generoElegido()">{{ genero }}</button>
+  }
+</div>
+
+<div class="orden">
+  <span class="etiqueta-orden">Ordenar por:</span>
+  @for (orden of ordenes; track orden) {
+    <button (click)="elegirOrden(orden)" [class.activo]="orden === ordenElegido()">{{ orden }}</button>
+  }
+</div>

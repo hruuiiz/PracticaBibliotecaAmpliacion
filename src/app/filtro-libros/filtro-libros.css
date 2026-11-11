@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Filtro de libros – Estilos del componente
+   ========================================================================== */
+
+/*CÓDIGO GENERADO POR LA IA CLAUDE*/
+
+:host {
+  /* Mismas variables que el resto de la página */
+  --color-tarjeta: #ffffff;
+  --color-texto: #1d2433;
+  --color-texto-suave: #5d6678;
+  --color-acento: #2f4cdd;
+  --color-acento-hover: #243bb5;
+  --color-foco: rgba(47, 76, 221, 0.22);
+
+  display: block;
+  margin-bottom: 2rem;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.filtro,
+.orden {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.orden {
+  margin-top: 0.9rem;
+}
+
+.etiqueta-orden {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+/* Botones de género y de orden ------------------------------------------------------- */
+
+.filtro button,
+.orden button {
+  padding: 0.5rem 1.1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-texto); /* Mismo borde fino que las tarjetas */
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.filtro button:hover,
+.orden button:hover {
+  color: var(--color-acento);
+  border-color: var(--color-acento);
+}
+
+.filtro button:active,
+.orden button:active {
+  transform: translateY(1px);
+}
+
+.filtro button:focus-visible,
+.orden button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-foco);
+}
+
+/* Género elegido: va el último para que hover y active no lo pisen */
+.filtro button.activo,
+.orden button.activo {
+  color: #fff;
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+}
+
+.filtro button.activo:hover,
+.orden button.activo:hover {
+  background: var(--color-acento-hover);
+  border-color: var(--color-acento-hover);
+  color: #fff;
+}
+
+/* Móvil ---------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .filtro {
+    gap: 0.5rem;
+  }
+
+  .filtro button,
+.orden button {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido ------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .filtro button,
+.orden button {
+    transition: none;
+  }
+}

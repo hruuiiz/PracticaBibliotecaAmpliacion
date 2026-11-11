@@ -1,0 +1,33 @@
+<div class="catalogo-container">
+  <h3 class="titulo-catalogo">Catálogo</h3>
+
+  <app-filtro-libros></app-filtro-libros>
+
+  <div class="grid-libros">
+    @for (libro of librosFiltrados(); track libro.id) {
+    <div class="tarjeta-libro" [class.no-disponible]="libro.disponible === false">
+
+      <div class="imagen-contenedor">
+        <a routerLink="/detalle/{{libro.id}}"><img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-libro"></a>
+      </div>
+
+      <div class="info-libro">
+        <h4>{{libro.titulo}}</h4>
+        <p class="autor">{{libro.autor}}</p>
+        <p class="genero">{{libro.genero}}</p>
+
+        @if (libro.disponible) {
+        <p class="estado estado-ok">Disponible</p>
+        } @else {
+        <p class="estado estado-no">No disponible</p>
+        }
+
+        @if (rol() === 'usuario') {
+        <button (click)="alquilarLibro(libro)" [disabled]="libro.disponible === false">Alquilar</button>
+        }
+      </div>
+
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="carrito-container">
+  <h3 class="titulo-carrito">Carrito</h3>
+
+  @if (cantidadCarrito() > 0) {
+    <p class="resumen">Libros en el carrito: {{ cantidadCarrito() }}</p>
+  }
+
+  <div class="lista-carrito">
+    @for (libro of carrito(); track libro.id) {
+      <div class="item-carrito">
+        <img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-item">
+
+        <div class="info-item">
+          <h4>{{libro.titulo}}</h4>
+          <p class="autor">{{libro.autor}}</p>
+          <p class="genero">{{libro.genero}}</p>
+        </div>
+
+        <button (click)="eliminarLibro(libro)">Eliminar</button>
+      </div>
+    } @empty {
+      <div class="carrito-vacio">
+        <p>Tu carrito está vacío.</p>
+        <a routerLink="/catalogo">Ir al catálogo</a>
+      </div>
+    }
+  </div>
+</div>

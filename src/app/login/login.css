@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Login – estilos del componente
+   ========================================================================== */
+
+/*CÓDIGO GENERADO POR LA IA CLAUDE*/
+
+:host {
+  --color-fondo: #eef1f6;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1d2433;
+  --color-texto-suave: #5d6678;
+  --color-borde: #d5dbe6;
+  --color-acento: #2f4cdd;
+  --color-acento-hover: #243bb5;
+  --color-foco: rgba(47, 76, 221, 0.22);
+  --color-error: #c0392b;
+  --color-error-foco: rgba(192, 57, 43, 0.2);
+  --color-desactivado: #9aa3b5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background: var(--color-fondo);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--color-texto);
+}
+
+/* Tarjeta ------------------------------------------------------------- */
+
+.contenedorLogin {
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem 2.25rem;
+  box-sizing: border-box;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px -12px rgba(29, 36, 51, 0.18);
+}
+
+.contenedorLogin h2 {
+  margin: 0 0 2rem;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* Campos -------------------------------------------------------------- */
+
+/* Solo los div que cuelgan directamente del formulario (un div por campo).
+   Así el div.error de dentro no recibe este margen. */
+.contenedorLogin form>div {
+  margin-bottom: 1.25rem;
+}
+
+.contenedorLogin label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-texto-suave);
+}
+
+.contenedorLogin input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contenedorLogin input:hover {
+  border-color: #aab3c5;
+}
+
+.contenedorLogin input:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 4px var(--color-foco);
+}
+
+/* Campo con error: Angular añade solo las clases ng-invalid y ng-touched.
+   Va después de hover y focus para que el rojo tenga prioridad. */
+.contenedorLogin input.ng-invalid.ng-touched {
+  border-color: var(--color-error);
+}
+
+.contenedorLogin input.ng-invalid.ng-touched:focus {
+  box-shadow: 0 0 0 4px var(--color-error-foco);
+}
+
+/* Mensajes de error --------------------------------------------------- */
+
+.contenedorLogin .error {
+  margin-top: 0.4rem;
+}
+
+.contenedorLogin .error small {
+  display: block;
+  /* Cada mensaje en su propia línea */
+  font-size: 0.8rem;
+  color: var(--color-error);
+}
+
+/* Botón --------------------------------------------------------------- */
+
+.contenedorLogin button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-acento);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.contenedorLogin button:hover {
+  background: var(--color-acento-hover);
+}
+
+.contenedorLogin button:active {
+  transform: translateY(1px);
+}
+
+.contenedorLogin button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-foco);
+}
+
+/* Botón desactivado (formulario inválido).
+   Va el último de la sección: si estuviera antes, hover y active lo pisarían. */
+.contenedorLogin button:disabled {
+  background: var(--color-desactivado);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Enlace -------------------------------------------------------------- */
+
+.contenedorLogin p {
+  margin: 1.75rem 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+.contenedorLogin a {
+  font-weight: 600;
+  color: var(--color-acento);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.contenedorLogin a:hover,
+.contenedorLogin a:focus-visible {
+  border-bottom-color: currentColor;
+  outline: none;
+}
+
+/* Móvil --------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .contenedorLogin {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido ----------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contenedorLogin input,
+  .contenedorLogin button,
+  .contenedorLogin a {
+    transition: none;
+  }
+}

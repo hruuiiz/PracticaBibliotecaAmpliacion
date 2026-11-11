@@ -1,0 +1,40 @@
+<div class="contenedorLogin">
+    <h2>INICIAR SESIÓN</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <label for="correoIniciarSesion">Correo electrónico:</label>
+            <input type="email" id="correoIniciarSesion" formControlName="correo">
+            <!--Se guarda lo que se escriba aquí en la variable del ts-->
+
+            @if (f["correo"].touched && f["correo"].invalid) {
+            <div class="error">
+                @if (f["correo"].errors?.['required']) {
+                <small>El correo es obligatorio.</small>
+                }
+                @if (f["correo"].errors?.['email']) {
+                <small>Debe ser un correo válido.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <div>
+            <label for="contrasenaIniciarSesion">Contraseña:</label>
+            <input type="password" id="contrasenaIniciarSesion" formControlName="contrasena">
+
+            @if (f["contrasena"].touched && f["contrasena"].invalid) {
+            <div class="error">
+                @if (f["contrasena"].errors?.['required']) {
+                <small>La contraseña es obligatoria.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
+    </form>
+
+    <p>¿No tienes cuenta? <a routerLink="/registro">Registrarse</a></p>
+</div>

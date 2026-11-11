@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Dashboard – Estilos del componente
+   ========================================================================== */
+
+:host {
+  /* Reutilizamos los colores de tu registro/login para mantener la sintonía */
+  --color-fondo: #eef1f6;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1d2433;
+  --color-acento: #2f4cdd;
+  --color-sombra: rgba(29, 36, 51, 0.12);
+  --color-sombra-hover: rgba(47, 76, 221, 0.25);
+
+  display: block;
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--color-fondo);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.titulo-dashboard {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Reemplazamos los floats anticuados por un CSS Grid moderno y dinámico */
+.grid-libros {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+/* Tarjeta del libro */
+.tarjeta-libro {
+  background: var(--color-tarjeta);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 12px var(--color-sombra);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efecto al pasar el ratón por encima (hover) */
+.tarjeta-libro:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px var(--color-sombra-hover);
+}
+
+.tarjeta-libro:hover h4 {
+  color: var(--color-acento);
+}
+
+/* Contenedor de la portada */
+.imagen-contenedor {
+  width: 100%;
+  height: 320px;
+  /* Altura fija para que todas las tarjetas midan lo mismo */
+  background-color: #d5dbe6;
+  /* Fondo de carga por si la imagen tarda */
+  overflow: hidden;
+}
+
+.imagen-libro {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ajusta la imagen sin deformarla */
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-libro:hover .imagen-libro {
+  transform: scale(1.05);
+  /* Pequeño zoom a la portada al hacer hover */
+}
+
+/* Zona del título */
+.info-libro {
+  padding: 1.25rem;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-libro h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-texto);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+
+  /* Trunca el texto con puntos suspensivos si el título es muy largo (máx 2 líneas) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .grid-libros {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .imagen-contenedor {
+    height: 240px;
+  }
+
+  .info-libro h4 {
+    font-size: 1rem;
+  }
+}

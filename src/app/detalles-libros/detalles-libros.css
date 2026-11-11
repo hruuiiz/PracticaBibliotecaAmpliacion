@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Detalle del libro – Estilos del componente
+   ========================================================================== */
+
+/*CÓDIGO GENERADO POR LA IA CLAUDE*/
+
+:host {
+  /* Mismas variables que el catálogo, el carrito, el dashboard, el login y el menú */
+  --color-fondo: #eef1f6;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1d2433;
+  --color-texto-suave: #5d6678;
+  --color-borde: #d5dbe6;
+  --color-acento: #2f4cdd;
+  --color-acento-hover: #243bb5;
+  --color-foco: rgba(47, 76, 221, 0.22);
+  --color-error: #c0392b;
+  --color-sombra: rgba(29, 36, 51, 0.12);
+
+  display: block;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: var(--color-fondo);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.detalle-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Ficha: portada a la izquierda, datos a la derecha ---------------------- */
+
+.ficha {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  width: 100%;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-texto); /* Mismo borde fino que las tarjetas del catálogo */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+.imagen-contenedor {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-borde); /* Fondo mientras carga la imagen */
+}
+
+.imagen-libro {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Datos ------------------------------------------------------------------ */
+
+.info-libro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+}
+
+.info-libro h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--color-texto);
+}
+
+.dato {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: var(--color-texto-suave);
+}
+
+.etiqueta {
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+.sinopsis {
+  margin: 1.5rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-borde);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-texto);
+}
+
+/* Etiqueta de disponibilidad (igual que en el catálogo) */
+.estado {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.3rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.estado-ok {
+  color: #1e7e34;
+  background: #e6f4ea;
+}
+
+.estado-no {
+  color: var(--color-error);
+  background: rgba(192, 57, 43, 0.1);
+}
+
+/* Botón Volver ------------------------------------------------------------ */
+
+.boton-volver {
+  padding: 0.7rem 2rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-acento);
+  background: transparent;
+  border: 1px solid var(--color-acento);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+}
+
+.boton-volver:hover {
+  color: #fff;
+  background: var(--color-acento);
+}
+
+.boton-volver:active {
+  transform: translateY(1px);
+}
+
+.boton-volver:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-foco);
+}
+
+/* Móvil y pantallas pequeñas ---------------------------------------------- */
+
+@media (max-width: 800px) {
+  .ficha {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-contenedor {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .info-libro {
+    padding: 1.5rem;
+  }
+
+  .info-libro h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido ---------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .boton-volver {
+    transition: none;
+  }
+}

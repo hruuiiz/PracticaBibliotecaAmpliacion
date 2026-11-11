@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "correo": "admin@biblioteca.com",
+    "contrasena": "Admin123!",
+    "rol": "admin"
+  },
+  {
+    "id": 2,
+    "correo": "bibliotecario@biblioteca.com",
+    "contrasena": "Biblio2026!",
+    "rol": "admin"
+  },
+  {
+    "id": 3,
+    "correo": "ana@correo.com",
+    "contrasena": "Ana12345!",
+    "rol": "usuario"
+  },
+  {
+    "id": 4,
+    "correo": "carlos@correo.com",
+    "contrasena": "Carlos123!",
+    "rol": "usuario"
+  },
+  {
+    "id": 5,
+    "correo": "lucia@correo.com",
+    "contrasena": "Lucia2026!",
+    "rol": "usuario"
+  },
+  {
+    "id": 6,
+    "correo": "pablo@correo.com",
+    "contrasena": "Pablo2026!",
+    "rol": "usuario"
+  }
+]

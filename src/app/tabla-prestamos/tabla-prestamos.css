@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Tabla de préstamos – Estilos del componente
+   ========================================================================== */
+
+/*CÓDIGO GENERADO POR LA IA CLAUDE*/
+
+:host {
+  /* Mismas variables que el resto de la página */
+  --color-fondo: #eef1f6;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1d2433;
+  --color-texto-suave: #5d6678;
+  --color-borde: #d5dbe6;
+  --color-acento: #2f4cdd;
+  --color-error: #c0392b;
+  --color-sombra: rgba(29, 36, 51, 0.12);
+
+  display: block;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: var(--color-fondo);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.prestamos-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.titulo-prestamos {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin: 0 0 2rem;
+  letter-spacing: -0.02em;
+}
+
+/* Tarjeta que contiene la tabla ------------------------------------------ */
+
+.tabla-contenedor {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-texto); /* Mismo borde fino que las tarjetas del catálogo */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-sombra);
+  overflow-x: auto; /* En pantallas pequeñas la tabla se desplaza hacia el lado */
+}
+
+.tabla-prestamos {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+/* Cabecera ------------------------------------------------------------------ */
+
+.tabla-prestamos th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  background: #f4f6fb;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+/* Filas --------------------------------------------------------------------- */
+
+.tabla-prestamos td {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.tabla-prestamos tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-prestamos tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.tabla-prestamos tbody tr:hover {
+  background: rgba(47, 76, 221, 0.05);
+}
+
+/* Etiquetas Sí / No (mismos nombres que en el catálogo) ---------------------- */
+
+.estado {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.estado-ok {
+  color: #1e7e34;
+  background: #e6f4ea;
+}
+
+.estado-no {
+  color: var(--color-error);
+  background: rgba(192, 57, 43, 0.1);
+}
+
+.estado-info {
+  color: var(--color-acento);
+  background: rgba(47, 76, 221, 0.1);
+}
+
+.estado-neutro {
+  color: var(--color-texto-suave);
+  background: #eef1f6;
+}
+
+/* Sin préstamos ---------------------------------------------------------------- */
+
+.sin-prestamos {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+/* Móvil ---------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido -------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .tabla-prestamos tbody tr {
+    transition: none;
+  }
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "idLibro": 3,
+    "idUsuario": 3,
+    "fechaPrestamo": "2026-11-03",
+    "fechaDevolucion": "2026-11-17",
+    "ampliado": false,
+    "devuelto": false
+  },
+  {
+    "id": 2,
+    "idLibro": 8,
+    "idUsuario": 4,
+    "fechaPrestamo": "2026-11-03",
+    "fechaDevolucion": "2026-11-17",
+    "ampliado": false,
+    "devuelto": false
+  },
+  {
+    "id": 3,
+    "idLibro": 2,
+    "idUsuario": 5,
+    "fechaPrestamo": "2026-11-04",
+    "fechaDevolucion": "2026-11-18",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 4,
+    "idLibro": 9,
+    "idUsuario": 3,
+    "fechaPrestamo": "2026-11-05",
+    "fechaDevolucion": "2026-11-19",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 5,
+    "idLibro": 7,
+    "idUsuario": 4,
+    "fechaPrestamo": "2026-11-06",
+    "fechaDevolucion": "2026-11-20",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 6,
+    "idLibro": 5,
+    "idUsuario": 5,
+    "fechaPrestamo": "2026-11-06",
+    "fechaDevolucion": "2026-11-20",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 7,
+    "idLibro": 1,
+    "idUsuario": 6,
+    "fechaPrestamo": "2026-11-07",
+    "fechaDevolucion": "2026-11-21",
+    "ampliado": false,
+    "devuelto": false
+  },
+  {
+    "id": 8,
+    "idLibro": 15,
+    "idUsuario": 3,
+    "fechaPrestamo": "2026-11-08",
+    "fechaDevolucion": "2026-11-22",
+    "ampliado": false,
+    "devuelto": false
+  },
+  {
+    "id": 9,
+    "idLibro": 14,
+    "idUsuario": 6,
+    "fechaPrestamo": "2026-11-07",
+    "fechaDevolucion": "2026-11-21",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 10,
+    "idLibro": 10,
+    "idUsuario": 4,
+    "fechaPrestamo": "2026-11-04",
+    "fechaDevolucion": "2026-11-18",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 11,
+    "idLibro": 6,
+    "idUsuario": 6,
+    "fechaPrestamo": "2026-11-05",
+    "fechaDevolucion": "2026-11-19",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 12,
+    "idLibro": 13,
+    "idUsuario": 5,
+    "fechaPrestamo": "2026-11-06",
+    "fechaDevolucion": "2026-11-20",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 13,
+    "idLibro": 4,
+    "idUsuario": 3,
+    "fechaPrestamo": "2026-10-24",
+    "fechaDevolucion": "2026-11-07",
+    "ampliado": false,
+    "devuelto": false
+  },
+  {
+    "id": 14,
+    "idLibro": 1,
+    "idUsuario": 3,
+    "fechaPrestamo": "2026-10-05",
+    "fechaDevolucion": "2026-10-19",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 15,
+    "idLibro": 4,
+    "idUsuario": 5,
+    "fechaPrestamo": "2026-10-01",
+    "fechaDevolucion": "2026-10-22",
+    "ampliado": true,
+    "devuelto": true
+  },
+  {
+    "id": 16,
+    "idLibro": 3,
+    "idUsuario": 4,
+    "fechaPrestamo": "2026-09-20",
+    "fechaDevolucion": "2026-10-04",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 17,
+    "idLibro": 6,
+    "idUsuario": 6,
+    "fechaPrestamo": "2026-10-12",
+    "fechaDevolucion": "2026-10-26",
+    "ampliado": false,
+    "devuelto": true
+  },
+  {
+    "id": 18,
+    "idLibro": 5,
+    "idUsuario": 3,
+    "fechaPrestamo": "2026-10-18",
+    "fechaDevolucion": "2026-11-01",
+    "ampliado": false,
+    "devuelto": true
+  }
+]

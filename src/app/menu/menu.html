@@ -1,0 +1,18 @@
+@if (correo()) {
+<nav class="barra-navegacion">
+
+  <span class="saludo">¡Hola, {{ correo() }}!</span>
+
+  <button (click)="irAlDashboard()">Dashboard</button>
+  <button (click)="irAlCatalogo()">Catálogo</button>
+
+  @if (rol() === 'admin') {
+  <button (click)="irATablaPrestamos()">Tabla de Préstamos</button>
+  } @else {
+  <button (click)="irAlCarrito()">Carrito ({{ cantidadCarrito() }})</button>
+  }
+
+  <button class="cerrar-sesion" (click)="cerrarSesion()">Cerrar Sesión</button>
+
+</nav>
+}

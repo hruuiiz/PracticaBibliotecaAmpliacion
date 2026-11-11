@@ -1,0 +1,53 @@
+<div class="prestamos-container">
+  <h3 class="titulo-prestamos">Préstamos</h3>
+
+  <div class="tabla-contenedor">
+    <table class="tabla-prestamos">
+
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Libro</th>
+          <th>Usuario</th>
+          <th>Fecha de préstamo</th>
+          <th>Fecha de devolución</th>
+          <th>Ampliado</th>
+          <th>Devuelto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (prestamo of prestamos(); track prestamo.id) {
+          <tr>
+            <td>{{prestamo.id}}</td>
+            <td>{{prestamo.idLibro}}</td>
+            <td>{{prestamo.idUsuario}}</td>
+            <td>{{prestamo.fechaPrestamo}}</td>
+            <td>{{prestamo.fechaDevolucion}}</td>
+
+            <td>
+              @if (prestamo.ampliado) {
+                <span class="estado estado-info">Sí</span>
+              } @else {
+                <span class="estado estado-neutro">No</span>
+              }
+            </td>
+
+            <td>
+              @if (prestamo.devuelto) {
+                <span class="estado estado-ok">Sí</span>
+              } @else {
+                <span class="estado estado-no">No</span>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" class="sin-prestamos">No hay préstamos.</td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+  </div>
+</div>
