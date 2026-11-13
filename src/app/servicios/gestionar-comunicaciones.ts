@@ -34,13 +34,13 @@ export class GestionarComunicaciones {
   }
 
   agregarAlCarrito(libro: Libro) {
-    if (!this.carrito().find(item => item.id === libro.id)) {   // find en lugar de some
+    if (!this.carrito().find(item => item._id === libro._id)) {   // find en lugar de some
       this.carrito.update(librosActuales => [...librosActuales, libro]);
     }
   }
 
-  eliminarDelCarrito(libroId: number) {
-    this.carrito.update(librosActuales => librosActuales.filter(item => item.id !== libroId));
+  eliminarDelCarrito(libroId: string) {
+    this.carrito.update(librosActuales => librosActuales.filter(item => item._id !== libroId));
   }
 }
 

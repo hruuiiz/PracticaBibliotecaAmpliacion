@@ -4,6 +4,11 @@ const app = express();
 const rutasLibros = require('./rutas/rutasLibros');
 const rutasPrestamos = require('./rutas/rutasPrestamos');
 const rutasUsuarios = require('./rutas/rutasUsuarios');
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'http://localhost:4200'
+}));
 
 app.use(express.json());                      
 

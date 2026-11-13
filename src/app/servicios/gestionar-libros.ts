@@ -1,19 +1,24 @@
 import { inject, Service } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Libro } from '../interfaces/libro';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Service()
 export class GestionarLibros {
-  private serviceUrl = '/json/libros.json';
+  private apiRestUrl = 'http://localhost:3000/libros';
   private http = inject(HttpClient);
 
   getLibros(): Observable<Libro[]> {
-    const headers = new HttpHeaders({
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    });
-    return this.http.get<Libro[]>(this.serviceUrl, { headers });
+    return this.http.get<Libro[]>(this.apiRestUrl)
+      .pipe(catchError(this.handleError<Libro[]>('getLibros', [])));
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 }

@@ -4,11 +4,11 @@
   <app-filtro-libros></app-filtro-libros>
 
   <div class="grid-libros">
-    @for (libro of librosFiltrados(); track libro.id) {
+    @for (libro of librosFiltrados(); track libro._id) {
     <div class="tarjeta-libro" [class.no-disponible]="libro.disponible === false">
 
       <div class="imagen-contenedor">
-        <a routerLink="/detalle/{{libro.id}}"><img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-libro"></a>
+        <a routerLink="/detalle/{{libro._id}}"><img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-libro"></a>
       </div>
 
       <div class="info-libro">

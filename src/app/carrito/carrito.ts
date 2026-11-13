@@ -21,7 +21,7 @@ export class Carrito {
   carrito = this.gestionarComunicaciones.carrito;
 
   eliminarLibro(libro: Libro) {
-  this.gestionarComunicaciones.eliminarDelCarrito(libro.id);
+  this.gestionarComunicaciones.eliminarDelCarrito(libro._id);
 }
 
 

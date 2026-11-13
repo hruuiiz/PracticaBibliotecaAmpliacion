@@ -2,8 +2,8 @@
   <h3 class="titulo-dashboard">Top Libros / Novedades</h3>
 
   <div class="grid-libros">
-    @for (libro of libros(); track libro.id) {
-    <a class="tarjeta-libro" routerLink="/detalle/{{libro.id}}">
+    @for (libro of libros(); track libro._id) {
+    <a class="tarjeta-libro" routerLink="/detalle/{{libro._id}}">
       <div class="imagen-contenedor">
         <img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-libro">
       </div>

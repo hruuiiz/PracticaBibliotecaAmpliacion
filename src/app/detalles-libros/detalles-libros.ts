@@ -27,8 +27,8 @@ export class DetallesLibros implements OnInit {
 
   getLibros(): void {
     this.gestionarLibros.getLibros().subscribe((libros) => {
-      const id = Number(this.route.snapshot.paramMap.get('id'));
-      this.libro.set(libros.find(libro => libro.id === id));
+      const id = this.route.snapshot.paramMap.get('id');
+      this.libro.set(libros.find(libro => libro._id === id));
     });
   }
 

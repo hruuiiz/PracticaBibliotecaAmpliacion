@@ -6,7 +6,7 @@
   }
 
   <div class="lista-carrito">
-    @for (libro of carrito(); track libro.id) {
+    @for (libro of carrito(); track libro._id) {
       <div class="item-carrito">
         <img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-item">
 
