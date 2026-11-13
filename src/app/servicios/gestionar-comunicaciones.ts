@@ -6,7 +6,7 @@ import { Libro } from '../interfaces/libro';
 export class GestionarComunicaciones {
   correo = signal<string>('');
   rol = signal<string>('');
-  idUsuario = signal<number>(0);
+  idUsuario = signal<string>('');
   carrito = signal<Libro[]>([]);
   cantidadCarrito = computed(() => this.carrito().length);
   generoElegido = signal<string>('Todos'); //Caja que solo admite strings y que empieza en todos
@@ -23,13 +23,13 @@ export class GestionarComunicaciones {
   iniciarSesion(usuario: Usuario) {
     this.correo.set(usuario.correo);
     this.rol.set(usuario.rol);
-    this.idUsuario.set(usuario.id);
+    this.idUsuario.set(usuario._id);
   }
 
   cerrarSesion() {
     this.correo.set('');
     this.rol.set('');
-    this.idUsuario.set(0);
+    this.idUsuario.set('');
     this.carrito.set([]);
   }
 

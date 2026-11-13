@@ -1,7 +1,7 @@
 export interface Prestamo {
-  id: number,
-  idLibro: number,
-  idUsuario: number,
+  _id: string,
+  idLibro: string,
+  idUsuario: string,
   fechaPrestamo: string,
   fechaDevolucion: string,
   ampliado: boolean,

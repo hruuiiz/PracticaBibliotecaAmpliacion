@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { GestionarUsuarios } from '../servicios/gestionar-usuarios';
 
 @Component({
   imports: [ReactiveFormsModule, RouterLink],
@@ -12,6 +13,8 @@ import { RouterLink } from '@angular/router';
 export class Registro {
 
   registroForm: FormGroup;
+  private gestionarUsuarios = inject(GestionarUsuarios);
+  private router = inject(Router);
 
   constructor(private fb: FormBuilder) {
     this.registroForm = this.fb.group({
@@ -21,9 +24,16 @@ export class Registro {
     })
   }
 
-  onSubmit() {
+    onSubmit() {
     if (this.registroForm.valid) {
-      console.log("Formulario enviado:", this.registroForm.value);
+      this.gestionarUsuarios.registro(this.registroForm.value.correo, this.registroForm.value.contrasena).subscribe((usuario) => {
+        if (usuario) {
+          alert('Usuario registrado. Ya puedes iniciar sesión');
+          this.router.navigate(['/login']);
+        } else {
+          alert('No se ha podido registrar. Puede que ese correo ya exista');
+        }
+      });
     } else {
       this.registroForm.markAllAsTouched();
     }

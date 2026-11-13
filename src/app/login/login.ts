@@ -26,15 +26,14 @@ export class Login {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.gestionarUsuarios.getUsuarios().subscribe((usuarios) => {
-        const usuario = usuarios.find((u) => u.correo === this.loginForm.value.correo && u.contrasena === this.loginForm.value.contrasena);
-        if (usuario) {
-          this.gestionarComunicaciones.iniciarSesion(usuario);
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.router.navigate(['/registro']);
-        }
-      });
+      this.gestionarUsuarios.login(this.loginForm.value.correo, this.loginForm.value.contrasena).subscribe((usuario) => {
+  if (usuario) {
+    this.gestionarComunicaciones.iniciarSesion(usuario);
+    this.router.navigate(['/dashboard']);
+  } else {
+    this.router.navigate(['/registro']);
+  }
+});
     } else {
       this.loginForm.markAllAsTouched();
     }

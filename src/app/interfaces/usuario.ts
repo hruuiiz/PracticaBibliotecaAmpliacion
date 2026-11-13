@@ -1,6 +1,5 @@
 export interface Usuario {
-  id: number,
+  _id: string,
   correo: string,
-  contrasena: string,
   rol: string
 }

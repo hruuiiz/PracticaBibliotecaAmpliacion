@@ -17,9 +17,9 @@
       </thead>
 
       <tbody>
-        @for (prestamo of prestamos(); track prestamo.id) {
+        @for (prestamo of prestamos(); track prestamo._id) {
           <tr>
-            <td>{{prestamo.id}}</td>
+            <td>{{prestamo._id}}</td>
             <td>{{prestamo.idLibro}}</td>
             <td>{{prestamo.idUsuario}}</td>
             <td>{{prestamo.fechaPrestamo}}</td>
