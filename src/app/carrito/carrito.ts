@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { Libro } from '../interfaces/libro';
-import { GestionarLibros } from '../servicios/gestionar-libros';
 import { GestionarComunicaciones } from '../servicios/gestionar-comunicaciones';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-carrito',
   styleUrl: './carrito.css',
   templateUrl: './carrito.html',

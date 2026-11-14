@@ -63,4 +63,14 @@ export class Catalogo implements OnInit {
   alquilarLibro(libro: Libro) {
     this.gestionarComunicaciones.agregarAlCarrito(libro);
   }
+
+  eliminarLibro(libro: Libro) {
+  this.gestionarLibros.deleteLibro(libro._id).subscribe((respuesta) => {
+    if (respuesta) {
+      this.getLibros();
+    } else {
+      alert('No se ha podido eliminar el libro');
+    }
+  });
+}
 }

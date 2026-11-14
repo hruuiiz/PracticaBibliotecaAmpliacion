@@ -27,13 +27,13 @@ export class Login {
   onSubmit() {
     if (this.loginForm.valid) {
       this.gestionarUsuarios.login(this.loginForm.value.correo, this.loginForm.value.contrasena).subscribe((usuario) => {
-  if (usuario) {
-    this.gestionarComunicaciones.iniciarSesion(usuario);
-    this.router.navigate(['/dashboard']);
-  } else {
-    this.router.navigate(['/registro']);
-  }
-});
+        if (usuario) {
+          this.gestionarComunicaciones.iniciarSesion(usuario);
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.router.navigate(['/registro']);
+        }
+      });
     } else {
       this.loginForm.markAllAsTouched();
     }

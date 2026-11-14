@@ -1,6 +1,12 @@
 <div class="catalogo-container">
   <h3 class="titulo-catalogo">Catálogo</h3>
 
+  @if (rol() === 'admin') {
+  <div class="barra-admin">
+    <a class="boton-anadir" routerLink="/libros/nuevo">Añadir libro</a>
+  </div>
+  }
+
   <app-filtro-libros></app-filtro-libros>
 
   <div class="grid-libros">
@@ -8,7 +14,8 @@
     <div class="tarjeta-libro" [class.no-disponible]="libro.disponible === false">
 
       <div class="imagen-contenedor">
-        <a routerLink="/detalle/{{libro._id}}"><img [src]="libro.imagen" alt="{{libro.titulo}}" class="imagen-libro"></a>
+        <a routerLink="/detalle/{{libro._id}}"><img [src]="libro.imagen" alt="{{libro.titulo}}"
+            class="imagen-libro"></a>
       </div>
 
       <div class="info-libro">
@@ -24,6 +31,15 @@
 
         @if (rol() === 'usuario') {
         <button (click)="alquilarLibro(libro)" [disabled]="libro.disponible === false">Alquilar</button>
+        }
+
+        @if (rol() === 'admin') {
+        <div class="acciones-admin">
+          <a class="editar" routerLink="/libros/editar/{{libro._id}}">Editar</a>
+          @if (libro.disponible === false) {
+          <button class="eliminar" (click)="eliminarLibro(libro)">Eliminar</button>
+          }
+        </div>
         }
       </div>
 

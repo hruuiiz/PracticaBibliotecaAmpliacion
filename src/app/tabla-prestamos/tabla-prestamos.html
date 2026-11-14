@@ -1,6 +1,17 @@
 <div class="prestamos-container">
   <h3 class="titulo-prestamos">Préstamos</h3>
 
+  <form class="nuevo-prestamo" [formGroup]="prestamoForm" (ngSubmit)="crearPrestamo()">
+    <label for="idLibro">Nuevo préstamo (a tu nombre)</label>
+    <select id="idLibro" formControlName="idLibro">
+      <option value="">Elige un libro disponible</option>
+      @for (libro of librosDisponibles(); track libro._id) {
+      <option [value]="libro._id">{{ libro.titulo }}</option>
+      }
+    </select>
+    <button type="submit" [disabled]="prestamoForm.invalid">Crear préstamo</button>
+  </form>
+
   <div class="tabla-contenedor">
     <table class="tabla-prestamos">
 
@@ -13,38 +24,51 @@
           <th>Fecha de devolución</th>
           <th>Ampliado</th>
           <th>Devuelto</th>
+          <th>Acciones</th>
         </tr>
       </thead>
 
       <tbody>
         @for (prestamo of prestamos(); track prestamo._id) {
-          <tr>
-            <td>{{prestamo._id}}</td>
-            <td>{{prestamo.idLibro}}</td>
-            <td>{{prestamo.idUsuario}}</td>
-            <td>{{prestamo.fechaPrestamo}}</td>
-            <td>{{prestamo.fechaDevolucion}}</td>
+        <tr>
+          <td>{{prestamo._id}}</td>
+          <td>{{ tituloLibro(prestamo.idLibro) }}</td>
+          <td>{{prestamo.idUsuario}}</td>
+          <td>{{prestamo.fechaPrestamo}}</td>
+          <td>{{prestamo.fechaDevolucion}}</td>
 
-            <td>
-              @if (prestamo.ampliado) {
-                <span class="estado estado-info">Sí</span>
-              } @else {
-                <span class="estado estado-neutro">No</span>
-              }
-            </td>
+          <td>
+            @if (prestamo.ampliado) {
+            <span class="estado estado-info">Sí</span>
+            } @else {
+            <span class="estado estado-neutro">No</span>
+            }
+          </td>
 
-            <td>
-              @if (prestamo.devuelto) {
-                <span class="estado estado-ok">Sí</span>
-              } @else {
-                <span class="estado estado-no">No</span>
+          <td>
+            @if (prestamo.devuelto) {
+            <span class="estado estado-ok">Sí</span>
+            } @else {
+            <span class="estado estado-no">No</span>
+            }
+          </td>
+
+          <td>
+            <div class="acciones">
+              @if (!prestamo.ampliado && !prestamo.devuelto) {
+              <button class="ampliar" (click)="ampliarPrestamo(prestamo)">Ampliar</button>
               }
-            </td>
-          </tr>
+              @if (!prestamo.devuelto) {
+              <button class="devolver" (click)="devolverPrestamo(prestamo)">Devolver</button>
+              }
+              <button class="eliminar" (click)="eliminarPrestamo(prestamo)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
         } @empty {
-          <tr>
-            <td colspan="7" class="sin-prestamos">No hay préstamos.</td>
-          </tr>
+        <tr>
+          <td colspan="8" class="sin-prestamos">No hay préstamos.</td>
+        </tr>
         }
       </tbody>
 

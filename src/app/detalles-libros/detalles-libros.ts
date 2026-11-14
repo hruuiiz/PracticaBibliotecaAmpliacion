@@ -4,8 +4,6 @@ import { UpperCasePipe } from '@angular/common';
 import { GestionarLibros } from '../servicios/gestionar-libros';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { RouterLink } from '@angular/router';
-
 
 @Component({
   imports: [UpperCasePipe],

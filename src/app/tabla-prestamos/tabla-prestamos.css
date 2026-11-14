@@ -141,3 +141,182 @@
     transition: none;
   }
 }
+
+/* ==========================================================================
+   Botón "Ampliar" de la columna Acciones
+   ========================================================================== */
+
+.tabla-prestamos .ampliar {
+  padding: 0.45rem 1rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-acento);
+  background: transparent;
+  border: 1px solid var(--color-acento);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+}
+
+.tabla-prestamos .ampliar:hover {
+  color: #fff;
+  background: var(--color-acento);
+}
+
+.tabla-prestamos .ampliar:active {
+  transform: translateY(1px);
+}
+
+.tabla-prestamos .ampliar:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(47, 76, 221, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabla-prestamos .ampliar {
+    transition: none;
+  }
+}
+
+/* Agrupa los botones de la columna Acciones */
+.tabla-prestamos .acciones {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Botón "Devolver" (verde) */
+.tabla-prestamos .devolver {
+  padding: 0.45rem 1rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e8e5a;
+  background: transparent;
+  border: 1px solid #1e8e5a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+}
+
+.tabla-prestamos .devolver:hover {
+  color: #fff;
+  background: #1e8e5a;
+}
+
+.tabla-prestamos .devolver:active {
+  transform: translateY(1px);
+}
+
+.tabla-prestamos .devolver:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(30, 142, 90, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabla-prestamos .devolver {
+    transition: none;
+  }
+}
+
+/* Botón "Eliminar" (rojo) */
+.tabla-prestamos .eliminar {
+  padding: 0.45rem 1rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-error);
+  background: transparent;
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+}
+
+.tabla-prestamos .eliminar:hover {
+  color: #fff;
+  background: var(--color-error);
+}
+
+.tabla-prestamos .eliminar:active {
+  transform: translateY(1px);
+}
+
+.tabla-prestamos .eliminar:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabla-prestamos .eliminar {
+    transition: none;
+  }
+}
+
+/* Formulario "Nuevo préstamo" -------------------------------------------- */
+
+.nuevo-prestamo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-texto);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+.nuevo-prestamo label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+.nuevo-prestamo select {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+}
+
+.nuevo-prestamo select:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  box-shadow: 0 0 0 4px rgba(47, 76, 221, 0.22);
+}
+
+.nuevo-prestamo button {
+  padding: 0.65rem 1.4rem;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-acento);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nuevo-prestamo button:hover {
+  background: #243bb5;
+}
+
+.nuevo-prestamo button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nuevo-prestamo button {
+    transition: none;
+  }
+}

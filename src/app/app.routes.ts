@@ -6,7 +6,7 @@ import { Catalogo } from './catalogo/catalogo';
 import { Carrito } from './carrito/carrito';
 import { DetallesLibros } from './detalles-libros/detalles-libros';
 import { TablaPrestamos } from './tabla-prestamos/tabla-prestamos';
-import { FiltroLibros } from './filtro-libros/filtro-libros';
+import { FormularioLibro } from './formulario-libro/formulario-libro';
 
 export const routes: Routes = [
     { path: 'login', component: Login },
@@ -17,5 +17,6 @@ export const routes: Routes = [
     { path: 'carrito', component: Carrito },
     { path: 'detalle/:id', component: DetallesLibros }, 
     { path: 'prestamos', component: TablaPrestamos} ,
-    { path: 'filtro/:id' , component: FiltroLibros}
+    { path: 'libros/nuevo', component: FormularioLibro },
+    { path: 'libros/editar/:id', component: FormularioLibro }
 ];
