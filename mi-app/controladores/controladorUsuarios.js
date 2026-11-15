@@ -60,15 +60,15 @@ async function eliminarUsuario(req, res) {
 
 async function login(req, res) {
   try {
-    const datos = req.body || {};
+    const datos = req.body || {}; //Pilla el cuerpo de la petición y si no hay usa un objeto vacío para que se ejecuten las líneas de abajo
     const correo = datos.correo;
     const contrasena = datos.contrasena;
 
-    if (typeof correo !== 'string' || typeof contrasena !== 'string') {
+    if (typeof correo !== 'string' || typeof contrasena !== 'string') { //Si el correo o la contrasña no son de tipo string responde 400
       return res.status(400).json({ "status": "Faltan el correo o la contraseña" });
     }
 
-    const usuario = await Usuario.findOne({ correo: correo, contrasena: contrasena });
+    const usuario = await Usuario.findOne({ correo: correo, contrasena: contrasena }); //Busca dentro de los datos un usario con ese correo y contraseña que se ha escrito, si no coinciden sale 401
     if (!usuario) return res.status(401).json({ "status": "Correo o contraseña incorrectos" });
 
     res.status(200).json({ _id: usuario._id, correo: usuario.correo, rol: usuario.rol });
@@ -78,7 +78,7 @@ async function login(req, res) {
   }
 }
 
-async function registro(req, res) {
+async function registro(req, res) { //Esto es prácticamente igual que en login
   try {
     const datos = req.body || {};
     const correo = datos.correo;
@@ -88,11 +88,11 @@ async function registro(req, res) {
       return res.status(400).json({ "status": "Faltan el correo o la contraseña" });
     }
 
-    const existente = await Usuario.findOne({ correo: correo });
+    const existente = await Usuario.findOne({ correo: correo }); //Valida si existe o no un usuario con ese corre
     if (existente) return res.status(409).json({ "status": "Ya existe un usuario con ese correo" });
 
     const nuevoUsuario = new Usuario({ correo: correo, contrasena: contrasena, rol: 'usuario' });
-    await nuevoUsuario.save();
+    await nuevoUsuario.save(); //El rol siemmpre es usuario
 
     res.status(201).json({ _id: nuevoUsuario._id, correo: nuevoUsuario.correo, rol: nuevoUsuario.rol });
   } catch (err) {

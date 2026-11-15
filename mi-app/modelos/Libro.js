@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //Librería y variable de la librería
 
-const libroSchema = new mongoose.Schema({
+const libroSchema = new mongoose.Schema({ //El esquema vive dentro de la librería
   titulo: { type: String, required: true },
   autor: String,
   genero: String,
@@ -11,4 +11,4 @@ const libroSchema = new mongoose.Schema({
   fechaAlta: String
 });
 
-module.exports = mongoose.model('Libro', libroSchema);
+module.exports = mongoose.model('Libro', libroSchema); //Exporta el modelo para que los controladores lo usen

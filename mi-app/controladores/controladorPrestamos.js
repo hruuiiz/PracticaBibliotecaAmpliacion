@@ -1,3 +1,4 @@
+//Las explicaciones de controladorLibros.js también sirven pata este
 const Prestamo = require('../modelos/Prestamo');
 
 async function getPrestamos(req, res) {

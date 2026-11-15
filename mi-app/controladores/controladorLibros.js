@@ -1,8 +1,8 @@
-const Libro = require('../modelos/Libro');
+const Libro = require('../modelos/Libro'); //Aquí pillamos el modelo de Libro
 
-async function getLibros(req, res) {
-  try {
-    const libros = await Libro.find();
+async function getLibros(req, res) { //Recoge la petición y se envia la respuesta
+  try { //Intenta hacer lo de dentro y si algo sale mal salta el catch
+    const libros = await Libro.find(); //await espera a que Mongo conteste antes de seguir con la líena siguiente
     res.status(200).json(libros);
   } catch (err) {
     console.error("Error en getLibros:", err.message);
