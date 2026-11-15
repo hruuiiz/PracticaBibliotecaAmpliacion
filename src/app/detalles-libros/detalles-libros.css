@@ -1,11 +1,4 @@
-/* ==========================================================================
-   Detalle del libro – Estilos del componente
-   ========================================================================== */
-
-/*CÓDIGO GENERADO POR LA IA CLAUDE*/
-
 :host {
-  /* Mismas variables que el catálogo, el carrito, el dashboard, el login y el menú */
   --color-fondo: #eef1f6;
   --color-tarjeta: #ffffff;
   --color-texto: #1d2433;
@@ -34,14 +27,12 @@
   gap: 1.5rem;
 }
 
-/* Ficha: portada a la izquierda, datos a la derecha ---------------------- */
-
 .ficha {
   display: grid;
   grid-template-columns: 320px 1fr;
   width: 100%;
   background: var(--color-tarjeta);
-  border: 1px solid var(--color-texto); /* Mismo borde fino que las tarjetas del catálogo */
+  border: 1px solid var(--color-texto);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px var(--color-sombra);
@@ -50,7 +41,7 @@
 .imagen-contenedor {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background-color: var(--color-borde); /* Fondo mientras carga la imagen */
+  background-color: var(--color-borde);
 }
 
 .imagen-libro {
@@ -59,8 +50,6 @@
   object-fit: cover;
   display: block;
 }
-
-/* Datos ------------------------------------------------------------------ */
 
 .info-libro {
   display: flex;
@@ -98,7 +87,6 @@
   color: var(--color-texto);
 }
 
-/* Etiqueta de disponibilidad (igual que en el catálogo) */
 .estado {
   align-self: flex-start;
   margin: 0;
@@ -117,8 +105,6 @@
   color: var(--color-error);
   background: rgba(192, 57, 43, 0.1);
 }
-
-/* Botón Volver ------------------------------------------------------------ */
 
 .boton-volver {
   padding: 0.7rem 2rem;
@@ -147,8 +133,6 @@
   box-shadow: 0 0 0 4px var(--color-foco);
 }
 
-/* Móvil y pantallas pequeñas ---------------------------------------------- */
-
 @media (max-width: 800px) {
   .ficha {
     grid-template-columns: 1fr;
@@ -173,8 +157,6 @@
     padding: 1rem;
   }
 }
-
-/* Respeta la preferencia de movimiento reducido ---------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   .boton-volver {

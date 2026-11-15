@@ -65,12 +65,12 @@ export class Catalogo implements OnInit {
   }
 
   eliminarLibro(libro: Libro) {
-  this.gestionarLibros.deleteLibro(libro._id).subscribe((respuesta) => {
-    if (respuesta) {
-      this.getLibros();
-    } else {
-      alert('No se ha podido eliminar el libro');
-    }
-  });
-}
+    this.gestionarLibros.deleteLibro(libro._id).subscribe((respuesta) => {
+      if (respuesta) {
+        this.getLibros();
+      } else {
+        alert('No se ha podido eliminar el libro');
+      }
+    });
+  }
 }

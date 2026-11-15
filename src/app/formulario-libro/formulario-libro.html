@@ -1,9 +1,9 @@
 <div class="formulario-container">
 
   @if (id) {
-    <h3 class="titulo-formulario">Modificar libro</h3>
+  <h3 class="titulo-formulario">Modificar libro</h3>
   } @else {
-    <h3 class="titulo-formulario">Añadir libro</h3>
+  <h3 class="titulo-formulario">Añadir libro</h3>
   }
 
   <form class="formulario" [formGroup]="libroForm()" (ngSubmit)="onSubmit()">
@@ -12,7 +12,7 @@
       <label for="titulo">Título</label>
       <input type="text" id="titulo" formControlName="titulo">
       @if (f["titulo"].touched && f["titulo"].invalid) {
-        <p class="error">El título es obligatorio</p>
+      <p class="error">El título es obligatorio</p>
       }
     </div>
 
@@ -20,7 +20,7 @@
       <label for="autor">Autor</label>
       <input type="text" id="autor" formControlName="autor">
       @if (f["autor"].touched && f["autor"].invalid) {
-        <p class="error">El autor es obligatorio</p>
+      <p class="error">El autor es obligatorio</p>
       }
     </div>
 
@@ -29,11 +29,11 @@
       <select id="genero" formControlName="genero">
         <option value="">Elige un género</option>
         @for (genero of generos; track genero) {
-          <option [value]="genero">{{ genero }}</option>
+        <option [value]="genero">{{ genero }}</option>
         }
       </select>
       @if (f["genero"].touched && f["genero"].invalid) {
-        <p class="error">Elige un género</p>
+      <p class="error">Elige un género</p>
       }
     </div>
 
@@ -41,7 +41,7 @@
       <label for="anio">Año de publicación</label>
       <input type="number" id="anio" formControlName="anio">
       @if (f["anio"].touched && f["anio"].invalid) {
-        <p class="error">Escribe un año válido (hasta 4 cifras)</p>
+      <p class="error">Escribe un año válido (hasta 4 cifras)</p>
       }
     </div>
 
@@ -49,7 +49,7 @@
       <label for="sinopsis">Sinopsis</label>
       <textarea id="sinopsis" rows="4" formControlName="sinopsis"></textarea>
       @if (f["sinopsis"].touched && f["sinopsis"].invalid) {
-        <p class="error">La sinopsis es obligatoria</p>
+      <p class="error">La sinopsis es obligatoria</p>
       }
     </div>
 
@@ -57,7 +57,7 @@
       <label for="imagen">Imagen (por ejemplo /images/ImagenDune.jpg)</label>
       <input type="text" id="imagen" formControlName="imagen">
       @if (f["imagen"].touched && f["imagen"].invalid) {
-        <p class="error">La ruta de la imagen es obligatoria</p>
+      <p class="error">La ruta de la imagen es obligatoria</p>
       }
     </div>
 
@@ -65,7 +65,7 @@
       <label for="fechaAlta">Fecha de alta</label>
       <input type="date" id="fechaAlta" formControlName="fechaAlta">
       @if (f["fechaAlta"].touched && f["fechaAlta"].invalid) {
-        <p class="error">La fecha de alta es obligatoria</p>
+      <p class="error">La fecha de alta es obligatoria</p>
       }
     </div>
 

@@ -8,7 +8,6 @@
             <input type="email" id="correoRegistrarse" formControlName="correo">
 
             @if (f["correo"].touched && f["correo"].invalid) {
-            <!--Si ha habido algún error en alguno de estos campos, poner el error-->
             <div class="error">
                 @if (f["correo"].errors?.['required']) {
                 <small>El correo es obligatorio.</small>

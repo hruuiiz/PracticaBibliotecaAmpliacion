@@ -6,9 +6,10 @@ import { GestionarLibros } from '../servicios/gestionar-libros';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GestionarComunicaciones } from '../servicios/gestionar-comunicaciones';
 import { Router } from '@angular/router';
+import { FiltroPrestamos } from '../filtro-prestamos/filtro-prestamos';
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FiltroPrestamos],
   selector: 'app-tabla-prestamos',
   styleUrl: './tabla-prestamos.css',
   templateUrl: './tabla-prestamos.html',
@@ -31,14 +32,40 @@ export class TablaPrestamos implements OnInit {
 
   librosDisponibles = computed(() => this.libros().filter(libro => libro.disponible));
 
+  estadoElegido = this.gestionarComunicaciones.estadoPrestamoElegido;
+  ordenElegido = this.gestionarComunicaciones.ordenPrestamoElegido;
+
+  prestamosFiltrados = computed(() => {
+    const estado = this.estadoElegido();
+    const orden = this.ordenElegido();
+
+    let lista = this.prestamos().slice(0, this.prestamos().length);
+
+    if (estado === 'En curso') {
+      lista = lista.filter(prestamo => !prestamo.devuelto);
+    }
+    if (estado === 'Devueltos') {
+      lista = lista.filter(prestamo => prestamo.devuelto);
+    }
+
+    if (orden === 'Devolución más próxima') {
+      lista.sort((a, b) => a.fechaDevolucion.localeCompare(b.fechaDevolucion));
+    }
+    if (orden === 'Devolución más lejana') {
+      lista.sort((a, b) => b.fechaDevolucion.localeCompare(a.fechaDevolucion));
+    }
+
+    return lista;
+  });
+
   ngOnInit() {
-  if (this.rol() !== 'admin') {
-    this.router.navigate(['/dashboard']);
-    return;
+    if (this.rol() !== 'admin') {
+      this.router.navigate(['/dashboard']);
+      return;
+    }
+    this.getPrestamos();
+    this.getLibros();
   }
-  this.getPrestamos();
-  this.getLibros();
-}
 
   getPrestamos() {
     this.gestionarPrestamos.getPrestamos().subscribe((prestamos: Prestamo[]) => {

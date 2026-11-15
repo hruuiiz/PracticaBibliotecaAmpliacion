@@ -9,15 +9,25 @@ export class GestionarComunicaciones {
   idUsuario = signal<string>('');
   carrito = signal<Libro[]>([]);
   cantidadCarrito = computed(() => this.carrito().length);
-  generoElegido = signal<string>('Todos'); //Caja que solo admite strings y que empieza en todos
+  generoElegido = signal<string>('Todos');
   ordenElegido = signal<string>('Sin orden');
+  estadoPrestamoElegido = signal<string>('Todos');
+  ordenPrestamoElegido = signal<string>('Sin orden');
 
-  elegirGenero(genero: string) { //Método para cambiar lo que hay apuntado y que recibe el género que le dan
-    this.generoElegido.set(genero); //Cambia el género que ya está por el género recibido
+  elegirGenero(genero: string) {
+    this.generoElegido.set(genero); 
   }
 
   elegirOrden(orden: string) {
-  this.ordenElegido.set(orden);
+    this.ordenElegido.set(orden);
+  }
+
+  elegirEstadoPrestamo(estado: string) {
+    this.estadoPrestamoElegido.set(estado);
+  }
+
+  elegirOrdenPrestamo(orden: string) {
+    this.ordenPrestamoElegido.set(orden);
   }
 
   iniciarSesion(usuario: Usuario) {
@@ -34,7 +44,7 @@ export class GestionarComunicaciones {
   }
 
   agregarAlCarrito(libro: Libro) {
-    if (!this.carrito().find(item => item._id === libro._id)) {   // find en lugar de some
+    if (!this.carrito().find(item => item._id === libro._id)) {
       this.carrito.update(librosActuales => [...librosActuales, libro]);
     }
   }

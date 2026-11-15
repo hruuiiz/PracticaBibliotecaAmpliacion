@@ -1,0 +1,12 @@
+<div class="filtro">
+  @for (estado of estados; track estado) {
+  <button (click)="elegirEstado(estado)" [class.activo]="estado === estadoElegido()">{{ estado }}</button>
+  }
+</div>
+
+<div class="orden">
+  <span class="etiqueta-orden">Ordenar por:</span>
+  @for (orden of ordenes; track orden) {
+  <button (click)="elegirOrden(orden)" [class.activo]="orden === ordenElegido()">{{ orden }}</button>
+  }
+</div>

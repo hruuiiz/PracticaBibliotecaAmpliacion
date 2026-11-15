@@ -19,12 +19,11 @@ export class Registro {
   constructor(private fb: FormBuilder) {
     this.registroForm = this.fb.group({
       correo: ["", [Validators.required, Validators.email]],
-      contrasena: ["", [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$')]] //Que tenga una minúscula, una mayúscula,
-      //espacios, carácter raro y que tengo mínimo 8 caractéres
+      contrasena: ["", [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$')]] 
     })
   }
 
-    onSubmit() {
+  onSubmit() {
     if (this.registroForm.valid) {
       this.gestionarUsuarios.registro(this.registroForm.value.correo, this.registroForm.value.contrasena).subscribe((usuario) => {
         if (usuario) {

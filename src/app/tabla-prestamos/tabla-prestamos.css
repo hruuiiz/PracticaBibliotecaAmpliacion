@@ -1,11 +1,4 @@
-/* ==========================================================================
-   Tabla de préstamos – Estilos del componente
-   ========================================================================== */
-
-/*CÓDIGO GENERADO POR LA IA CLAUDE*/
-
 :host {
-  /* Mismas variables que el resto de la página */
   --color-fondo: #eef1f6;
   --color-tarjeta: #ffffff;
   --color-texto: #1d2433;
@@ -37,14 +30,12 @@
   letter-spacing: -0.02em;
 }
 
-/* Tarjeta que contiene la tabla ------------------------------------------ */
-
 .tabla-contenedor {
   background: var(--color-tarjeta);
-  border: 1px solid var(--color-texto); /* Mismo borde fino que las tarjetas del catálogo */
+  border: 1px solid var(--color-texto);
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--color-sombra);
-  overflow-x: auto; /* En pantallas pequeñas la tabla se desplaza hacia el lado */
+  overflow-x: auto;
 }
 
 .tabla-prestamos {
@@ -52,8 +43,6 @@
   min-width: 760px;
   border-collapse: collapse;
 }
-
-/* Cabecera ------------------------------------------------------------------ */
 
 .tabla-prestamos th {
   padding: 1rem 1.25rem;
@@ -66,8 +55,6 @@
   background: #f4f6fb;
   border-bottom: 1px solid var(--color-borde);
 }
-
-/* Filas --------------------------------------------------------------------- */
 
 .tabla-prestamos td {
   padding: 0.9rem 1.25rem;
@@ -87,8 +74,6 @@
 .tabla-prestamos tbody tr:hover {
   background: rgba(47, 76, 221, 0.05);
 }
-
-/* Etiquetas Sí / No (mismos nombres que en el catálogo) ---------------------- */
 
 .estado {
   display: inline-block;
@@ -118,15 +103,11 @@
   background: #eef1f6;
 }
 
-/* Sin préstamos ---------------------------------------------------------------- */
-
 .sin-prestamos {
   padding: 2.5rem 1rem;
   text-align: center;
   color: var(--color-texto-suave);
 }
-
-/* Móvil ---------------------------------------------------------------------------- */
 
 @media (max-width: 600px) {
   :host {
@@ -134,17 +115,11 @@
   }
 }
 
-/* Respeta la preferencia de movimiento reducido -------------------------------- */
-
 @media (prefers-reduced-motion: reduce) {
   .tabla-prestamos tbody tr {
     transition: none;
   }
 }
-
-/* ==========================================================================
-   Botón "Ampliar" de la columna Acciones
-   ========================================================================== */
 
 .tabla-prestamos .ampliar {
   padding: 0.45rem 1rem;
@@ -179,14 +154,12 @@
   }
 }
 
-/* Agrupa los botones de la columna Acciones */
 .tabla-prestamos .acciones {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
 
-/* Botón "Devolver" (verde) */
 .tabla-prestamos .devolver {
   padding: 0.45rem 1rem;
   font: inherit;
@@ -220,7 +193,6 @@
   }
 }
 
-/* Botón "Eliminar" (rojo) */
 .tabla-prestamos .eliminar {
   padding: 0.45rem 1rem;
   font: inherit;
@@ -253,8 +225,6 @@
     transition: none;
   }
 }
-
-/* Formulario "Nuevo préstamo" -------------------------------------------- */
 
 .nuevo-prestamo {
   display: flex;

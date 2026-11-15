@@ -1,4 +1,4 @@
-import { Component , inject, signal , OnInit} from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { Libro } from '../interfaces/libro';
 import { UpperCasePipe } from '@angular/common';
 import { GestionarLibros } from '../servicios/gestionar-libros';
@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class DetallesLibros implements OnInit {
   libro = signal<Libro | undefined>(undefined);
-  private route = inject (ActivatedRoute)
+  private route = inject(ActivatedRoute)
   private gestionarLibros = inject(GestionarLibros);
   private location = inject(Location);
 
@@ -31,7 +31,7 @@ export class DetallesLibros implements OnInit {
   }
 
   goBack(): void {
-  this.location.back();
+    this.location.back();
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { GestionarComunicaciones } from '../servicios/gestionar-comunicaciones'; 
+import { GestionarComunicaciones } from '../servicios/gestionar-comunicaciones';
 
 
 @Component({

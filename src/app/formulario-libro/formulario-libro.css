@@ -1,11 +1,4 @@
-/* ==========================================================================
-   Formulario de libro (añadir y modificar) – Estilos del componente
-   ========================================================================== */
-
-/*CÓDIGO GENERADO POR LA IA CLAUDE*/
-
 :host {
-  /* Mismas variables que el resto de la página */
   --color-fondo: #eef1f6;
   --color-tarjeta: #ffffff;
   --color-texto: #1d2433;
@@ -40,12 +33,10 @@
   letter-spacing: -0.02em;
 }
 
-/* Tarjeta con el formulario ---------------------------------------------- */
-
 .formulario {
   padding: 2rem;
   background: var(--color-tarjeta);
-  border: 1px solid var(--color-texto); /* Mismo borde fino que las demás tarjetas */
+  border: 1px solid var(--color-texto);
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--color-sombra);
 }
@@ -88,7 +79,6 @@
   box-shadow: 0 0 0 4px var(--color-foco);
 }
 
-/* Casilla "Disponible" */
 .campo-check {
   flex-direction: row;
   align-items: center;
@@ -107,15 +97,11 @@
   font-weight: 500;
 }
 
-/* Mensajes de error ------------------------------------------------------ */
-
 .error {
   margin: 0.4rem 0 0;
   font-size: 0.85rem;
   color: var(--color-error);
 }
-
-/* Botones ----------------------------------------------------------------- */
 
 .botones {
   display: flex;
@@ -157,7 +143,6 @@
   box-shadow: 0 0 0 4px var(--color-foco);
 }
 
-/* Va el último: si estuviera antes, hover y active lo pisarían */
 .botones button:disabled {
   background: var(--color-desactivado);
   border-color: var(--color-desactivado);
@@ -177,8 +162,6 @@
   border-color: var(--color-texto);
 }
 
-/* Móvil -------------------------------------------------------------------- */
-
 @media (max-width: 600px) {
   :host {
     padding: 1rem;
@@ -189,9 +172,8 @@
   }
 }
 
-/* Respeta la preferencia de movimiento reducido --------------------------- */
-
 @media (prefers-reduced-motion: reduce) {
+
   .campo input,
   .campo select,
   .campo textarea,

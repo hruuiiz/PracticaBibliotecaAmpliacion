@@ -18,28 +18,28 @@ export class GestionarLibros {
   }
 
   getLibro(id: string): Observable<Libro> {
-  return this.http.get<Libro>(this.apiRestUrl + '/' + id).pipe(
-    catchError(this.handleError<Libro>('getLibro'))
-  );
+    return this.http.get<Libro>(this.apiRestUrl + '/' + id).pipe(
+      catchError(this.handleError<Libro>('getLibro'))
+    );
   }
 
   addLibro(libro: Libro): Observable<Libro> {
-  return this.http.post<Libro>(this.apiRestUrl, libro, this.httpOptions).pipe(
-    catchError(this.handleError<Libro>('addLibro'))
-  );
+    return this.http.post<Libro>(this.apiRestUrl, libro, this.httpOptions).pipe(
+      catchError(this.handleError<Libro>('addLibro'))
+    );
   }
 
   actualizarLibro(id: string, libro: Libro): Observable<Libro> {
-  return this.http.put<Libro>(this.apiRestUrl + '/' + id, libro, this.httpOptions).pipe(
-    catchError(this.handleError<Libro>('actualizarLibro'))
-  );
+    return this.http.put<Libro>(this.apiRestUrl + '/' + id, libro, this.httpOptions).pipe(
+      catchError(this.handleError<Libro>('actualizarLibro'))
+    );
   }
 
   deleteLibro(id: string): Observable<any> {
-  return this.http.delete<any>(this.apiRestUrl + '/' + id, this.httpOptions).pipe(
-    catchError(this.handleError<any>('deleteLibro'))
-  );
-}
+    return this.http.delete<any>(this.apiRestUrl + '/' + id, this.httpOptions).pipe(
+      catchError(this.handleError<any>('deleteLibro'))
+    );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

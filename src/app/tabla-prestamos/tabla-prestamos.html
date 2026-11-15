@@ -12,9 +12,10 @@
     <button type="submit" [disabled]="prestamoForm.invalid">Crear préstamo</button>
   </form>
 
+  <app-filtro-prestamos></app-filtro-prestamos>
+
   <div class="tabla-contenedor">
     <table class="tabla-prestamos">
-
       <thead>
         <tr>
           <th>Id</th>
@@ -29,7 +30,7 @@
       </thead>
 
       <tbody>
-        @for (prestamo of prestamos(); track prestamo._id) {
+        @for (prestamo of prestamosFiltrados(); track prestamo._id) {
         <tr>
           <td>{{prestamo._id}}</td>
           <td>{{ tituloLibro(prestamo.idLibro) }}</td>
