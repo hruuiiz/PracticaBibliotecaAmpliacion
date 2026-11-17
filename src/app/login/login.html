@@ -7,7 +7,8 @@
             <label for="correoIniciarSesion">Correo electrónico:</label>
             <input type="email" id="correoIniciarSesion" formControlName="correo">
 
-            @if (f["correo"].touched && f["correo"].invalid) {
+            @if (f["correo"].touched && f["correo"].invalid) { <!--Esto indica que solo sale si el usuario 
+                                                                ya lo ha tocado y ha sido incorrecto-->
             <div class="error">
                 @if (f["correo"].errors?.['required']) {
                 <small>El correo es obligatorio.</small>

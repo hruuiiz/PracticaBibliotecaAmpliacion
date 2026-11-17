@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   getLibros(): void {
     this.gestionarLibros.getLibros().subscribe((libros) => {
-      this.libros.set(libros.slice(libros.length - 5, libros.length));
+      this.libros.set(libros.slice(libros.length - 5, libros.length)); //Se queda con los 5 últimos libros del array y los guarda en la signal
     });
   }
 }

@@ -17,9 +17,9 @@ export class Carrito {
   rol = this.gestionarComunicaciones.rol;
   cantidadCarrito = this.gestionarComunicaciones.cantidadCarrito;
 
-  carrito = this.gestionarComunicaciones.carrito;
+  carrito = this.gestionarComunicaciones.carrito; 
 
-  eliminarLibro(libro: Libro) {
+  eliminarLibro(libro: Libro) { //Almacena los datos del modelo en la variable y le dice a la función sobre cual actuar
     this.gestionarComunicaciones.eliminarDelCarrito(libro._id);
   }
 

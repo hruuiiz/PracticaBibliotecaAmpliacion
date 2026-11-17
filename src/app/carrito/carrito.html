@@ -1,7 +1,7 @@
 <div class="carrito-container">
   <h3 class="titulo-carrito">Carrito</h3>
 
-  @if (cantidadCarrito() > 0) {
+  @if (cantidadCarrito() > 0) { <!--Solo aparece si hay un libro en el carrito-->
   <p class="resumen">Libros en el carrito: {{ cantidadCarrito() }}</p>
   }
 

@@ -25,7 +25,7 @@ export class FormularioLibro implements OnInit {
 
 
   ngOnInit() {
-    if (this.rol() !== 'admin') {
+    if (this.rol() !== 'admin') { //Si no eres admin te manda al dashboard
       this.router.navigate(['/dashboard']);
       return;
     }
@@ -60,7 +60,7 @@ export class FormularioLibro implements OnInit {
   onSubmit() {
     if (this.libroForm().valid) {
       const libro = this.libroForm().value as Libro;
-      if (this.id) {
+      if (this.id) { //Si hay ID modificamos el libro
         this.gestionarLibros.actualizarLibro(this.id, libro).subscribe((libroGuardado) => {
           if (libroGuardado) {
             this.router.navigate(['/catalogo']);
@@ -68,8 +68,8 @@ export class FormularioLibro implements OnInit {
             alert('No se ha podido modificar el libro');
           }
         });
-      } else {
-        this.gestionarLibros.addLibro(libro).subscribe((libroGuardado) => {
+      } else { //Si no hay ID añadimos un nuevo libro
+        this.gestionarLibros.addLibro(libro).subscribe((libroGuardado) => { 
           if (libroGuardado) {
             this.router.navigate(['/catalogo']);
           } else {

@@ -11,7 +11,7 @@ import { FormularioLibro } from './formulario-libro/formulario-libro';
 export const routes: Routes = [
     { path: 'login', component: Login },
     { path: 'registro', component: Registro },
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' }, //Cuando entras a la app te lleva aquí
     { path: 'dashboard', component: DashboardComponent },
     { path: 'catalogo', component: Catalogo },
     { path: 'carrito', component: Carrito },

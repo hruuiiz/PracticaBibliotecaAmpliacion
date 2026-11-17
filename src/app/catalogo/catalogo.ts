@@ -22,18 +22,18 @@ export class Catalogo implements OnInit {
   generoElegido = this.gestionarComunicaciones.generoElegido;
   ordenElegido = this.gestionarComunicaciones.ordenElegido;
 
-  librosFiltrados = computed(() => {
+  librosFiltrados = computed(() => { //Computed es como un signal pero que se recalcula cuando cambia algún signal que hay dentro
     const genero = this.generoElegido();
     const orden = this.ordenElegido();
 
-    let lista = this.libros().slice(0, this.libros().length);
+    let lista = this.libros().slice(0, this.libros().length); //slice copia un array y lo devuelve como uno nuevo
 
     if (genero !== 'Todos') {
       lista = lista.filter(libro => libro.genero === genero);
     }
 
     if (orden === 'Título A-Z') {
-      lista.sort((a, b) => a.titulo.localeCompare(b.titulo));
+      lista.sort((a, b) => a.titulo.localeCompare(b.titulo)); //localCompare compara dos textos
     }
     if (orden === 'Título Z-A') {
       lista.sort((a, b) => b.titulo.localeCompare(a.titulo));

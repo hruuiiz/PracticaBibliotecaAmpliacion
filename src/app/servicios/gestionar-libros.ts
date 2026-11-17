@@ -6,15 +6,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Service()
 export class GestionarLibros {
-  private apiRestUrl = 'http://localhost:3000/libros';
+  private apiRestUrl = 'http://localhost:3000/libros'; //Es la dirección de los libros en el servidor
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   private http = inject(HttpClient);
 
   getLibros(): Observable<Libro[]> {
-    return this.http.get<Libro[]>(this.apiRestUrl)
-      .pipe(catchError(this.handleError<Libro[]>('getLibros', [])));
+    return this.http.get<Libro[]>(this.apiRestUrl) //Dice: lo que va a llegar es un array de libros
+      .pipe(catchError(this.handleError<Libro[]>('getLibros', []))); //Esta línea indica que va a pasar lo que hay dentro de los paréntesis
   }
 
   getLibro(id: string): Observable<Libro> {
@@ -49,4 +49,5 @@ export class GestionarLibros {
     };
   }
 }
+//El resto de servicios son iguales
 

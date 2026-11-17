@@ -26,11 +26,11 @@ export class TablaPrestamos implements OnInit {
   private router = inject(Router);
   rol = this.gestionarComunicaciones.rol;
 
-  prestamoForm = this.fb.group({
+  prestamoForm = this.fb.group({ //Esto es el formulario que tiene la tabla
     idLibro: ['', [Validators.required]]
   });
 
-  librosDisponibles = computed(() => this.libros().filter(libro => libro.disponible));
+  librosDisponibles = computed(() => this.libros().filter(libro => libro.disponible)); //Esto hace que solo se puedan `restar libros que estén disponibles
 
   estadoElegido = this.gestionarComunicaciones.estadoPrestamoElegido;
   ordenElegido = this.gestionarComunicaciones.ordenPrestamoElegido;

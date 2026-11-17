@@ -1,4 +1,4 @@
-@if (correo()) {
+@if (correo()) { <!--El if correo es porque el menú solo existe si el correo se ha introducido (y se ha guardado en la señal)-->
 <nav class="barra-navegacion">
 
   <span class="saludo">¡Hola, {{ correo() }}!</span>

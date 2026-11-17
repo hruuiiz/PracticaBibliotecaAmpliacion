@@ -17,8 +17,8 @@ export class Login {
   private gestionarComunicaciones = inject(GestionarComunicaciones);
   private router = inject(Router);
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
+  constructor(private fb: FormBuilder) { //fb: FormBuilder es una propiedad para construir formularios
+    this.loginForm = this.fb.group({ //Se crea el formulario con sus campos
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', [Validators.required]],
     });

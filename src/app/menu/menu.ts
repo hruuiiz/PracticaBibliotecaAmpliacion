@@ -9,7 +9,8 @@ import { GestionarComunicaciones } from '../servicios/gestionar-comunicaciones';
 })
 export class Menu {
   private router = inject(Router);
-  private gestionarComunicaciones = inject(GestionarComunicaciones);
+  private gestionarComunicaciones = inject(GestionarComunicaciones); //GestionarComunicaciones es el servicio (clase) que se define en
+                                                                     //gestionar-comunicaciones.ts , la minúscula es una variable
   correo = this.gestionarComunicaciones.correo;
   rol = this.gestionarComunicaciones.rol;
   cantidadCarrito = this.gestionarComunicaciones.cantidadCarrito;
